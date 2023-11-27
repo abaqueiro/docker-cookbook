@@ -14,7 +14,13 @@ all the other process started are not informed.
 
 **SIGKILL** this signal can not be intercepted or stopped, is a forced inmediate termination.
 
-To run the example just
+To run the example first just build the image
+
+```bash
+./build.sh
+```
+
+Then just run it
 
 ```bash
 ./run.sh
@@ -22,7 +28,7 @@ To run the example just
 
 An incremental counter will be printed every second. You can interrupt in the same terminal using Ctrl-c
 
-Or you can try sending signals from the docker daemon
+Or you can try sending signals from the docker daemon from other terminal
 
 ```bash
 docker kill -s SIGINT signals-and-pid-1
@@ -31,3 +37,6 @@ docker kill -s SIGINT signals-and-pid-1
 ```bash
 docker kill -s SIGTERM signals-and-pid-1
 ```
+
+When the signal is received by the docker-entry.sh, it will print a message with the signal name and terminate
+itself.
